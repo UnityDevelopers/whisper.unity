@@ -1,5 +1,8 @@
 name: Build C++
 on:
+  push:
+    branches:
+      - update/whisper-cpp-1.7.4
   workflow_dispatch:
     inputs:
       whisper_cpp_repo:
