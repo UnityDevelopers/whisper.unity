@@ -41,7 +41,7 @@ jobs:
           ren whisper.dll libwhisper.dll
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows
           path: ${{ github.workspace }}/whisper-cpp/build/bin/Release/libwhisper.dll
@@ -81,7 +81,7 @@ jobs:
           ren whisper.dll libwhisper_cuda.dll
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: windows-cuda
           path: ${{ github.workspace }}/whisper-cpp/build/bin/Release/libwhisper_cuda.dll
@@ -110,7 +110,7 @@ jobs:
           sh build_cpp_linux.sh ../whisper-cpp/ cpu
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: linux
           path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.so
@@ -148,7 +148,7 @@ jobs:
           mv libwhisper.so libwhisper_cuda.so
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: linux-cuda
           path: ${{ github.workspace }}/whisper-cpp/build/libwhisper_cuda.so
@@ -177,7 +177,7 @@ jobs:
           sh build_cpp.sh ../whisper-cpp/ mac
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: macos
           path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.dylib
@@ -208,7 +208,7 @@ jobs:
           mv libwhisper.dylib libwhisper_metal.dylib
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: macos-metal
           path: |
@@ -238,7 +238,7 @@ jobs:
           sh build_cpp.sh ../whisper-cpp/ ios
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ios
           path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.a
@@ -281,7 +281,7 @@ jobs:
           sh build_cpp.sh ../whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
           
       - name: Upload results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: android
           path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.a
