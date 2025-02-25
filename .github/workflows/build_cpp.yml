@@ -290,5 +290,5 @@ jobs:
 #          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.a
 #          if-no-files-found: error
       - name: Debug - List files
-        run: ls -la ${{ github.workspace }}
+        run: ls -la ${{ github.workspace }}/whisper-cpp
       
