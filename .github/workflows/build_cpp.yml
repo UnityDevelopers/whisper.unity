@@ -278,15 +278,17 @@ jobs:
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
           path: whisper-cpp
           
-      - name: Run build script
-        run: |
-           cd ${{ github.workspace }}/whisper-unity
-           ls -l ${{ github.workspace }}/whisper-cpp
-           sh build_cpp.sh ${{ github.workspace }}/whisper-cpp android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
-          
+#      - name: Run build script
+#        run: |
+#          cd ${{ github.workspace }}/whisper-unity
+#          sh build_cpp.sh ${{ github.workspace }}/whisper-cpp android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
+#          
 #      - name: Upload results
 #        uses: actions/upload-artifact@v4
 #        with:
 #          name: android
 #          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.a
 #          if-no-files-found: error
+      - name: Debug - List files
+        run: ls -la ${{ github.workspace }}
+      
