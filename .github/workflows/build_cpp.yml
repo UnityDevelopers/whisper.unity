@@ -251,20 +251,20 @@ jobs:
     name: Build for Android (arm64-v8a)
     runs-on: ubuntu-latest
     steps:          
-      - name: Install Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: zulu
-          java-version: 17
-      
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-
-      - name: Install Android NDK
-        run: |
-          sdkmanager --install "build-tools;33.0.2"
-          sdkmanager --install "cmake;3.22.1"
-          sdkmanager --install "ndk;21.3.6528147"
+#      - name: Install Java
+#        uses: actions/setup-java@v3
+#        with:
+#          distribution: zulu
+#          java-version: 17
+#      
+#      - name: Setup Android SDK
+#        uses: android-actions/setup-android@v2
+#
+#      - name: Install Android NDK
+#        run: |
+#          sdkmanager --install "build-tools;33.0.2"
+#          sdkmanager --install "cmake;3.22.1"
+#          sdkmanager --install "ndk;21.3.6528147"
           
       - name: Clone whisper.unity
         uses: actions/checkout@v3
@@ -281,11 +281,12 @@ jobs:
       - name: Run build script
         run: |
            cd ${{ github.workspace }}/whisper-unity
+           ls -l ${{ github.workspace }}/whisper-cpp
            sh build_cpp.sh ${{ github.workspace }}/whisper-cpp android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
           
-      - name: Upload results
-        uses: actions/upload-artifact@v4
-        with:
-          name: android
-          path: ${{ github.workspace }}/whisper-unity/whisper-cpp/build/libwhisper.a
-          if-no-files-found: error
+#      - name: Upload results
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: android
+#          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.a
+#          if-no-files-found: error
