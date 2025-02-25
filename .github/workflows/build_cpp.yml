@@ -20,12 +20,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
@@ -54,12 +54,12 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
@@ -94,12 +94,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
@@ -123,12 +123,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
@@ -161,12 +161,12 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
@@ -190,12 +190,12 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
@@ -223,12 +223,12 @@ jobs:
     runs-on: macOS-latest
     steps:
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
@@ -267,12 +267,12 @@ jobs:
 #          sdkmanager --install "ndk;21.3.6528147"
           
       - name: Clone whisper.unity
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: whisper-unity
           
       - name: Clone whisper.cpp
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.whisper_cpp_repo }}
           ref: ${{ github.event.inputs.whisper_cpp_repo_ref }}
