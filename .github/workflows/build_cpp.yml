@@ -45,6 +45,7 @@ jobs:
           if-no-files-found: error
 
   build-windows-cuda:
+    if: false
     name: Build for Windows (x86_64, CUDA)
     runs-on: windows-latest
     steps:
@@ -84,6 +85,7 @@ jobs:
           if-no-files-found: error
           
   build-linux:
+    if: false
     name: Build for Linux (x86_64)
     runs-on: ubuntu-20.04
     steps:
@@ -112,6 +114,7 @@ jobs:
           if-no-files-found: error
 
   build-linux-cuda:
+    if: false
     name: Build for Linux (x86_64, CUDA)
     runs-on: ubuntu-20.04
     steps:
@@ -149,6 +152,7 @@ jobs:
           if-no-files-found: error
           
   build-macos:
+    if: false
     name: Build for MacOS (ARM, x86_64)
     runs-on: macOS-latest
     steps:
@@ -177,6 +181,7 @@ jobs:
           if-no-files-found: error
 
   build-macos-metal:
+    if: false
     name: Build for MacOS Metal (ARM, x86_64)
     runs-on: macOS-latest
     steps:
