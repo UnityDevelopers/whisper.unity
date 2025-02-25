@@ -12,7 +12,7 @@ on:
         default: 'v1.7.4'
 jobs:
   build-windows:
-    if: true
+    if: false
     name: Build for Windows (x86_64)
     runs-on: windows-latest
     steps:
@@ -153,7 +153,7 @@ jobs:
           if-no-files-found: error
   
   build-macos:
-    if: true
+    if: false
     name: Build for MacOS (ARM, x86_64)
     runs-on: macOS-latest
     steps:
@@ -215,7 +215,7 @@ jobs:
           if-no-files-found: error
   
   build-ios:
-    if: true
+    if: false
     name: Build for iOS
     runs-on: macOS-latest
     steps:
@@ -261,7 +261,7 @@ jobs:
         run: |
           sdkmanager --install "build-tools;33.0.2"
           sdkmanager --install "cmake;3.22.1"
-          sdkmanager --install "ndk;21.3.6528147"
+          sdkmanager --install "ndk;27.2.12479018"
 
       - name: Clone whisper.unity
         uses: actions/checkout@v4
