@@ -35,8 +35,8 @@ jobs:
         
       - name: Run build script
         run: |
-          cd whisper-unity
-          .\build_cpp.bat cpu ..\..\whisper-cpp\
+          cd ${{ github.workspace }}
+          .\build_cpp.bat cpu ..\whisper-cpp\
           cd ${{ github.workspace }}\whisper-cpp\build\bin\Release
           ren whisper.dll libwhisper.dll
           
@@ -75,8 +75,8 @@ jobs:
         
       - name: Run build script
         run: |
-          cd whisper-unity
-          .\build_cpp.bat cuda ..\..\whisper-cpp\
+          cd ${{ github.workspace }}
+          .\build_cpp.bat cuda ..\whisper-cpp\
           cd ${{ github.workspace }}\whisper-cpp\build\bin\Release
           ren whisper.dll libwhisper_cuda.dll
           
@@ -106,8 +106,8 @@ jobs:
           
       - name: Run build script
         run: |
-          cd whisper-unity
-          sh build_cpp_linux.sh ../../whisper-cpp/ cpu
+          cd ${{ github.workspace }}
+          sh build_cpp_linux.sh ../whisper-cpp/ cpu
           
       - name: Upload results
         uses: actions/upload-artifact@v4
@@ -142,7 +142,7 @@ jobs:
           
       - name: Run build script
         run: |
-          cd whisper-unity
+          cd ${{ github.workspace }}
           sh build_cpp_linux.sh ../whisper-cpp cuda
           cd ${{ github.workspace }}/whisper-cpp/build/
           mv libwhisper.so libwhisper_cuda.so
@@ -173,8 +173,8 @@ jobs:
           
       - name: Run build script
         run: |
-          cd whisper-unity
-          sh build_cpp.sh ../../whisper-cpp/ mac
+          cd ${{ github.workspace }}
+          sh build_cpp.sh ../whisper-cpp/ mac
           
       - name: Upload results
         uses: actions/upload-artifact@v4
@@ -202,8 +202,8 @@ jobs:
           
       - name: Run build script
         run: |
-          cd whisper-unity
-          sh build_cpp.sh ../../whisper-cpp/ mac_metal
+          cd ${{ github.workspace }}
+          sh build_cpp.sh ../whisper-cpp/ mac_metal
           cd ${{ github.workspace }}/whisper-cpp/build/
           mv libwhisper.dylib libwhisper_metal.dylib
           
@@ -234,8 +234,8 @@ jobs:
           
       - name: Run build script
         run: |
-          cd whisper-unity
-          sh build_cpp.sh ../../whisper-cpp/ ios
+          cd ${{ github.workspace }}
+          sh build_cpp.sh ../whisper-cpp/ ios
           
       - name: Upload results
         uses: actions/upload-artifact@v4
@@ -277,8 +277,8 @@ jobs:
           
       - name: Run build script
         run: |
-          cd whisper-unity
-          sh build_cpp.sh ../../whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
+          cd ${{ github.workspace }}
+          sh build_cpp.sh ../whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
           
       - name: Upload results
         uses: actions/upload-artifact@v4
