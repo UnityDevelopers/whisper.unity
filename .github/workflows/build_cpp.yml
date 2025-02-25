@@ -35,16 +35,16 @@ jobs:
         
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          .\build_cpp.bat cpu ..\whisper-cpp\
-          cd ${{ github.workspace }}\whisper-cpp\build\bin\Release
+          cd ${{ github.workspace }}\whisper-unity
+          .\build_cpp.bat cpu ${{ github.workspace }}\whisper-unity\whisper-cpp\
+          cd ${{ github.workspace }}\whisper-unity\whisper-cpp\build\bin\Release
           ren whisper.dll libwhisper.dll
           
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: ${{ github.workspace }}/whisper-cpp/build/bin/Release/libwhisper.dll
+          path: ${{ github.workspace }}\whisper-unity\whisper-cpp\build\bin\Release\libwhisper.dll
           if-no-files-found: error
 
   build-windows-cuda:
@@ -75,16 +75,16 @@ jobs:
         
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          .\build_cpp.bat cuda ..\whisper-cpp\
-          cd ${{ github.workspace }}\whisper-cpp\build\bin\Release
+          cd ${{ github.workspace }}\whisper-unity
+          .\build_cpp.bat cuda ${{ github.workspace }}\whisper-unity\whisper-cpp\
+          cd ${{ github.workspace }}\whisper-unity\whisper-cpp\build\bin\Release
           ren whisper.dll libwhisper_cuda.dll
           
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: windows-cuda
-          path: ${{ github.workspace }}/whisper-cpp/build/bin/Release/libwhisper_cuda.dll
+          path: ${{ github.workspace }}\whisper-unity\whisper-cpp\build\bin\Release\libwhisper_cuda.dll
           if-no-files-found: error
           
   build-linux:
@@ -106,14 +106,14 @@ jobs:
           
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          sh build_cpp_linux.sh ../whisper-cpp/ cpu
+          cd ${{ github.workspace }}/whisper-unity
+          sh build_cpp_linux.sh ${{ github.workspace }}/whisper-unity/whisper-cpp/ cpu
           
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: linux
-          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.so
+          path: ${{ github.workspace }}/whisper-unity/whisper-cpp/build/libwhisper.so
           if-no-files-found: error
 
   build-linux-cuda:
@@ -142,16 +142,16 @@ jobs:
           
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          sh build_cpp_linux.sh ../whisper-cpp cuda
-          cd ${{ github.workspace }}/whisper-cpp/build/
+          cd ${{ github.workspace }}/whisper-unity
+          sh build_cpp_linux.sh ${{ github.workspace }}/whisper-unity/whisper-cpp cuda
+          cd ${{ github.workspace }}/whisper-unity/whisper-cpp/build/
           mv libwhisper.so libwhisper_cuda.so
           
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: linux-cuda
-          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper_cuda.so
+          path: ${{ github.workspace }}/whisper-unity/whisper-cpp/build/libwhisper_cuda.so
           if-no-files-found: error
           
   build-macos:
@@ -173,14 +173,14 @@ jobs:
           
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          sh build_cpp.sh ../whisper-cpp/ mac
+          cd ${{ github.workspace }}/whisper-unity
+          sh build_cpp.sh ${{ github.workspace }}/whisper-unity/whisper-cpp/ mac
           
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: macos
-          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.dylib
+          path: ${{ github.workspace }}/whisper-unity/whisper-cpp/build/libwhisper.dylib
           if-no-files-found: error
 
   build-macos-metal:
@@ -202,9 +202,9 @@ jobs:
           
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          sh build_cpp.sh ../whisper-cpp/ mac_metal
-          cd ${{ github.workspace }}/whisper-cpp/build/
+          cd ${{ github.workspace }}/whisper-unity
+          sh build_cpp.sh ${{ github.workspace }}/whisper-unity/whisper-cpp/ mac_metal
+          cd ${{ github.workspace }}/whisper-unity/whisper-cpp/build/
           mv libwhisper.dylib libwhisper_metal.dylib
           
       - name: Upload results
@@ -212,8 +212,8 @@ jobs:
         with:
           name: macos-metal
           path: |
-            ${{ github.workspace }}/whisper-cpp/build/libwhisper_metal.dylib
-            ${{ github.workspace }}/whisper-cpp/build/bin/ggml-metal.metal   
+            ${{ github.workspace }}/whisper-unity/whisper-cpp/build/libwhisper_metal.dylib
+            ${{ github.workspace }}/whisper-unity/whisper-cpp/build/bin/ggml-metal.metal   
           if-no-files-found: error
           
   build-ios:
@@ -234,14 +234,14 @@ jobs:
           
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          sh build_cpp.sh ../whisper-cpp/ ios
+          cd ${{ github.workspace }}/whisper-unity
+          sh build_cpp.sh ${{ github.workspace }}/whisper-unity/whisper-cpp/ ios
           
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: ios
-          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.a
+          path: ${{ github.workspace }}/whisper-unity/whisper-cpp/build/libwhisper.a
           if-no-files-found: error
 
   build-android:
@@ -277,12 +277,12 @@ jobs:
           
       - name: Run build script
         run: |
-          cd ${{ github.workspace }}
-          sh build_cpp.sh ../whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
+          cd ${{ github.workspace }}/whisper-unity
+          sh build_cpp.sh ${{ github.workspace }}/whisper-unity/whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
           
       - name: Upload results
         uses: actions/upload-artifact@v4
         with:
           name: android
-          path: ${{ github.workspace }}/whisper-cpp/build/libwhisper.a
+          path: ${{ github.workspace }}/whisper-unity/whisper-cpp/build/libwhisper.a
           if-no-files-found: error
