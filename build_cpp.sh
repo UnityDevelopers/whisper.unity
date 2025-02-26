@@ -4,7 +4,7 @@ whisper_path="$1"
 targets=${2:-all}
 android_sdk_path="$3"
 unity_project="$PWD"
-build_path="$1/build"
+build_path="$1/src"
 
 clean_build(){
   rm -rf "$build_path"
@@ -77,8 +77,6 @@ build_android() {
 
   echo "Build for Android complete!"
   
-  find ./ -name "libwhisper.a"
-
   artifact_path="$build_path/libwhisper.a"
   target_path="$unity_project/Packages/com.whisper.unity/Plugins/Android/libwhisper.a"
   cp "$artifact_path" "$target_path"
