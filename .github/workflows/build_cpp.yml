@@ -284,5 +284,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: android
-          path: ${{ github.workspace }}/whisper-cpp/src/libwhisper.a
+          path: ${{ github.workspace }}/whisper-cpp/build/src/libwhisper.a
           if-no-files-found: error
