@@ -9,7 +9,7 @@ on:
       whisper_cpp_repo_ref:
         description: 'Tag, branch or commit'
         required: true
-        default: 'v1.5.5'
+        default: 'v1.7.4'
 jobs:
   build-windows:
     if: false
@@ -261,7 +261,7 @@ jobs:
         run: |
           sdkmanager --install "build-tools;33.0.2"
           sdkmanager --install "cmake;3.22.1"
-          sdkmanager --install "ndk;21.3.6528147"
+          sdkmanager --install "ndk;27.2.12479018"
           
       - name: Clone whisper.unity
         uses: actions/checkout@v4
@@ -278,7 +278,7 @@ jobs:
       - name: Run build script
         run: |
           cd whisper-unity
-          sh build_cpp.sh ../whisper-cpp/ android $ANDROID_HOME/ndk/21.3.6528147/build/cmake/android.toolchain.cmake
+          sh build_cpp.sh ../whisper-cpp/ android $ANDROID_HOME/ndk/27.2.12479018/build/cmake/android.toolchain.cmake
           
       - name: Upload results
         uses: actions/upload-artifact@v4
