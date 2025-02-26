@@ -77,7 +77,7 @@ build_android() {
 
   echo "Build for Android complete!"
   
-  find build -name "libwhisper.a"
+  find ./ -name "libwhisper.a"
 
   artifact_path="$build_path/libwhisper.a"
   target_path="$unity_project/Packages/com.whisper.unity/Plugins/Android/libwhisper.a"
