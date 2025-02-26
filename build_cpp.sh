@@ -72,7 +72,9 @@ build_android() {
   echo "Starting building for Android..."
 
   cmake -DCMAKE_TOOLCHAIN_FILE="$android_sdk_path" -DANDROID_ABI=arm64-v8a -DBUILD_SHARED_LIBS=OFF \
-  -DWHISPER_BUILD_TESTS=OFF -DWHISPER_BUILD_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release ../
+  -DWHISPER_BUILD_TESTS=OFF -DWHISPER_BUILD_EXAMPLES=OFF -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_C_FLAGS="-mfpu=neon -mfloat-abi=hard -D__ARM_NEON__" \
+  -DCMAKE_CXX_FLAGS="-mfpu=neon -mfloat-abi=hard -D__ARM_NEON__" ../
   make
 
   echo "Build for Android complete!"
