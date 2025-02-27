@@ -25,7 +25,7 @@ build_mac() {
 
   artifact_path="$build_path/libwhisper.dylib"
   target_path="$unity_project/Packages/com.whisper.unity/Plugins/MacOS/libwhisper.dylib"
-  cp "$artifact_path" "$target_path"
+  # cp "$artifact_path" "$target_path"
 
   echo "Build files copied to $target_path"
 }
@@ -43,7 +43,7 @@ build_mac_metal() {
 
   artifact_path="$build_path/libwhisper.dylib"
   target_path="$unity_project/Packages/com.whisper.unity/Plugins/MacOS/libwhisper_metal.dylib"
-  cp "$artifact_path" "$target_path"
+  # cp "$artifact_path" "$target_path"
 
   echo "Build files copied to $target_path"
 }
@@ -62,7 +62,7 @@ build_ios() {
 
   artifact_path="$build_path/libwhisper.a"
   target_path="$unity_project/Packages/com.whisper.unity/Plugins/iOS/libwhisper.a"
-  cp "$artifact_path" "$target_path"
+  # cp "$artifact_path" "$target_path"
 
   echo "Build files copied to $target_path"
 }
@@ -79,7 +79,7 @@ build_android() {
 
   artifact_path="$build_path/libwhisper.a"
   target_path="$unity_project/Packages/com.whisper.unity/Plugins/Android/libwhisper.a"
-  cp "$artifact_path" "$target_path"
+  # cp "$artifact_path" "$target_path"
 
   echo "Build files copied to $target_path"
 }

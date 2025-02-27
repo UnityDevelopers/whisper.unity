@@ -19,7 +19,7 @@ goto commonexit
 
 	cd ./build
 	msbuild ALL_BUILD.vcxproj -t:build -p:configuration=Release -p:platform=x64
-	xcopy /y /q .\bin\Release\whisper.dll %unity_path%\Packages\com.whisper.unity\Plugins\Windows\libwhisper.dll*
+	:: xcopy /y /q .\bin\Release\whisper.dll %unity_path%\Packages\com.whisper.unity\Plugins\Windows\libwhisper.dll*
 
 	IF NOT "%target%"=="all" goto commonexit
 :cuda
@@ -30,6 +30,6 @@ goto commonexit
 
 	cd ./build
 	msbuild ALL_BUILD.vcxproj -t:build -p:configuration=Release -p:platform=x64
-	xcopy /y /q .\bin\Release\whisper.dll %unity_path%\Packages\com.whisper.unity\Plugins\Windows\libwhisper_cuda.dll*
+	:: xcopy /y /q .\bin\Release\whisper.dll %unity_path%\Packages\com.whisper.unity\Plugins\Windows\libwhisper_cuda.dll*
 
 :commonexit
